@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
@@ -21,9 +22,19 @@ namespace GuidBot.TelegramServices
         {
             if (update.Type == UpdateType.Message)
             {
-                var chatId = update.Message.Chat.Id;
+                var text = update.Message.Type switch
+                {
+                    MessageType.Text => Guid.NewGuid().ToString(),
+                    MessageType.ChatMembersAdded => ($"Hello @{update.Message.From.Username}. {Environment.NewLine}" +
+                                                     $"Guid for you: {Guid.NewGuid()}"),
+                    _ => null
+                };
 
-                await _telegramService.SendTextMessageAsync(chatId, Guid.NewGuid() + Environment.NewLine + HeartEmoji);
+                if (text != null)
+                {
+                    await _telegramService.SendTextMessageAsync(update.Message.Chat.Id, text + Environment.NewLine +
+                                                                                        HeartEmoji);
+                }
             }
         }
     }
