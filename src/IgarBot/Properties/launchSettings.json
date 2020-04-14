@@ -1,9 +1,17 @@
-﻿﻿{
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:52306/",
+      "sslPort": 44327
+    }
+  },
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/telegram",
+      "launchUrl": "/ping",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -11,11 +19,11 @@
     "GuidBot": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/telegram",
-      "applicationUrl": "http://localhost:8443",
+      "launchUrl": "/ping",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "http://localhost:8443"
     }
   }
 }

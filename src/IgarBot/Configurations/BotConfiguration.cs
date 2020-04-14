@@ -1,4 +1,4 @@
-﻿namespace GuidBot.Configurations
+﻿namespace IgarBot.Configurations
 {
     public class BotConfiguration
     {

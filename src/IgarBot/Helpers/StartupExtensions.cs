@@ -1,9 +1,9 @@
-﻿using GuidBot.Configurations;
+﻿using IgarBot.Configurations;
 using Microsoft.Extensions.DependencyInjection;
 using MihaZupan;
 using Telegram.Bot;
 
-namespace GuidBot.Helpers
+namespace IgarBot.Helpers
 {
     public static class StartupExtensions
     {

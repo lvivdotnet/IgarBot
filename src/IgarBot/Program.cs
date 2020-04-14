@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace GuidBot
+namespace IgarBot
 {
     public class Program
     {
@@ -18,7 +18,7 @@ namespace GuidBot
                 .ConfigureWebHostDefaults(builder =>
                 {
                     builder.UseStartup<Startup>();
-                    builder.UseUrls("http://localhost:8443");
+                    builder.UseUrls("http://localhost:8443"); // Telegram webhook requires 8443 port
                 });
     }
 }

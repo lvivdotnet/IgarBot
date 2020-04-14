@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
-using GuidBot.TelegramServices;
+using IgarBot.TelegramServices;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Telegram.Bot.Types;
 
-namespace GuidBot.Controllers
+namespace IgarBot.Controllers
 {
     [Route("api/[controller]")]
     public class TelegramController : Controller

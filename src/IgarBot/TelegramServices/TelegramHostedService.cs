@@ -1,11 +1,11 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using GuidBot.Configurations;
+using IgarBot.Configurations;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Telegram.Bot;
 
-namespace GuidBot.TelegramServices
+namespace IgarBot.TelegramServices
 {
     public sealed class TelegramHostedService : IHostedService
     {
