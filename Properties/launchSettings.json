@@ -1,0 +1,21 @@
+﻿﻿{
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "api/telegram",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "GuidBot": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "api/telegram",
+      "applicationUrl": "https://localhost:5001;http://localhost:8443",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
