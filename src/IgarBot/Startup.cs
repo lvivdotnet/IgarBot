@@ -34,6 +34,7 @@ namespace IgarBot
 
             var config = Configuration.GetOptions<BotConfiguration>("BotConfiguration");
             services.AddSingleton(config);
+            services.AddSingleton<IRepository<Igar>, SqlRepository<Igar>>();
             services.AddTelegram(config);
         }
 

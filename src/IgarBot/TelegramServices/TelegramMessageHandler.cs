@@ -6,26 +6,29 @@ using Telegram.Bot.Types.Enums;
 
 namespace IgarBot.TelegramServices
 {
-    public class TelegramMessageHandler
+    public sealed class TelegramMessageHandler
     {
         private readonly TelegramBotClient _telegramService;
+        private readonly IRepository<Igar> _repository;
         private const string HeartEmoji = "\U0001F496";
 
         public TelegramMessageHandler(
-            TelegramBotClient telegramService)
+            TelegramBotClient telegramService, IRepository<Igar> repository)
         {
             _telegramService = telegramService;
+            _repository = repository;
         }
 
         public async Task Handle(Update update)
         {
-            if (update.Type == UpdateType.Message)
+            if (update.Type is UpdateType.Message)
             {
+                var igarGuid = await _repository.GetIgar().GenerateGuidCachedSafeAsyncOrThrowOutOfWindow();
                 var text = update.Message.Type switch
                 {
-                    MessageType.Text => Guid.NewGuid().ToString(),
-                    MessageType.ChatMembersAdded => ($"Hello @{update.Message.From.Username}. {Environment.NewLine}" +
-                                                     $"Guid for you: {Guid.NewGuid()}"),
+                    MessageType.Text => igarGuid.ToString(),
+                    MessageType.ChatMembersAdded => $"Hello @{update.Message.From.Username}. {Environment.NewLine}" +
+                                                    $"Guid for you: {igarGuid}",
                     _ => null
                 };
 
